@@ -1,0 +1,122 @@
+
+import React, { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Download, Phone, Play } from 'lucide-react';
+
+const HeroSection = () => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
+  useEffect(() => {
+    // Auto-play video after component mounts
+    setTimeout(() => setIsVideoPlaying(true), 1000);
+  }, []);
+
+  const handleDownloadDossier = () => {
+    console.log('Downloading dossier...');
+    // Here you would implement the actual download logic
+  };
+
+  const handleScheduleCall = () => {
+    console.log('Scheduling call...');
+    // Here you would integrate with Calendly
+    window.open('https://calendly.com/your-calendly-link', '_blank');
+  };
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <div className="video-container">
+          {isVideoPlaying ? (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover opacity-20"
+            >
+              <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69c9a83d5a8b5f4b2b5f9b5f5&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
+            </video>
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-camino-green/20 to-camino-blue/20 flex items-center justify-center">
+              <img
+                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
+                alt="Camino de Santiago landscape"
+                className="w-full h-full object-cover opacity-30"
+              />
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4 text-center animate-fade-in">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+            Vende el{' '}
+            <span className="gradient-text">Camino de Santiago</span>
+          </h1>
+          <h2 className="text-2xl md:text-3xl font-light text-gray-700 mb-8">
+            Nosotros nos encargamos del resto.
+          </h2>
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto font-light">
+            Un producto probado. Alta demanda. Y tú ganas comisiones.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+            <Button
+              onClick={handleDownloadDossier}
+              className="camino-button text-lg px-8 py-6 w-full sm:w-auto animate-slide-in-left"
+            >
+              <Download className="mr-3 h-6 w-6" />
+              Quiero el dosier informativo
+            </Button>
+            <Button
+              onClick={handleScheduleCall}
+              className="camino-button-secondary text-lg px-8 py-6 w-full sm:w-auto animate-slide-in-right"
+            >
+              <Phone className="mr-3 h-6 w-6" />
+              Agendar llamada con un asesor
+            </Button>
+          </div>
+
+          {/* Video Play Button */}
+          {!isVideoPlaying && (
+            <button
+              onClick={() => setIsVideoPlaying(true)}
+              className="group mx-auto flex items-center justify-center w-20 h-20 bg-white/90 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 animate-pulse-gentle"
+            >
+              <Play className="h-8 w-8 text-camino-green ml-1 group-hover:text-camino-green-light transition-colors" fill="currentColor" />
+            </button>
+          )}
+
+          {/* Trust indicators */}
+          <div className="flex flex-wrap justify-center items-center gap-8 mt-16 text-gray-500 text-sm animate-fade-in">
+            <div className="flex items-center">
+              <span className="font-semibold text-camino-green text-lg mr-2">+400,000</span>
+              peregrinos anuales
+            </div>
+            <div className="flex items-center">
+              <span className="font-semibold text-camino-green text-lg mr-2">+120</span>
+              agencias colaboradoras
+            </div>
+            <div className="flex items-center">
+              <span className="font-semibold text-camino-green text-lg mr-2">15</span>
+              años de experiencia
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-camino-green rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-camino-green rounded-full mt-2 animate-pulse"></div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
