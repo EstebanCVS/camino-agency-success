@@ -24,6 +24,15 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
+      {/* Logo */}
+      <div className="absolute top-8 left-8 z-20">
+        <img 
+          src="/lovable-uploads/78a5631c-42b4-4921-b626-cb018d8234db.png" 
+          alt="Viajes Camino de Santiago" 
+          className="h-16 w-auto"
+        />
+      </div>
+
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <div className="video-container">
@@ -77,7 +86,7 @@ const HeroSection = () => {
               className="camino-button-secondary text-lg px-8 py-6 w-full sm:w-auto animate-slide-in-right"
             >
               <Phone className="mr-3 h-6 w-6" />
-              Agendar llamada con un asesor
+              Solicita una reunión con nosotros
             </Button>
           </div>
 
@@ -94,7 +103,7 @@ const HeroSection = () => {
           {/* Trust indicators */}
           <div className="flex flex-wrap justify-center items-center gap-8 mt-16 text-gray-500 text-sm animate-fade-in">
             <div className="flex items-center">
-              <span className="font-semibold text-camino-green text-lg mr-2">+400,000</span>
+              <span className="font-semibold text-camino-green text-lg mr-2">+500,000</span>
               peregrinos anuales
             </div>
             <div className="flex items-center">

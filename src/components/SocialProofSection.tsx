@@ -62,7 +62,7 @@ const SocialProofSection = () => {
             <div className="opacity-90">Años de experiencia</div>
           </div>
           <div>
-            <div className="text-4xl font-bold mb-2">+400k</div>
+            <div className="text-4xl font-bold mb-2">+500k</div>
             <div className="opacity-90">Peregrinos anuales</div>
           </div>
           <div>

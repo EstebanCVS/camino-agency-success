@@ -12,8 +12,8 @@ const OfferSection = () => {
     },
     {
       icon: TrendingUp,
-      title: "Comisiones atractivas",
-      description: "Hasta 20% de comisión por cliente + bonos por volumen de ventas."
+      title: "Grandes comisiones por ventas",
+      description: "Comisiones atractivas por cliente + bonos por volumen de ventas."
     },
     {
       icon: GraduationCap,
@@ -26,6 +26,11 @@ const OfferSection = () => {
       description: "Brochures personalizados, videos promocionales y kit de ventas con tu marca."
     }
   ];
+
+  const handleScheduleMeeting = () => {
+    console.log('Scheduling meeting');
+    window.open('https://calendly.com/your-calendly-link', '_blank');
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -65,14 +70,15 @@ const OfferSection = () => {
             ¿Listo para empezar?
           </h3>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Solicita tu kit de ventas personalizado y comienza a ofrecer 
-            el Camino de Santiago a tus clientes.
+            Solicita una reunión con nosotros y descubre cómo puedes empezar 
+            a ofrecer el Camino de Santiago a tus clientes.
           </p>
           <Button 
+            onClick={handleScheduleMeeting}
             className="bg-white text-camino-green hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            <Download className="mr-3 h-6 w-6" />
-            Solicita tu kit de ventas personalizado
+            <Phone className="mr-3 h-6 w-6" />
+            Solicita una reunión con nosotros
           </Button>
         </div>
       </div>
