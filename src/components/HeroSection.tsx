@@ -26,10 +26,10 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
       {/* Logo */}
       <div className="absolute top-8 left-8 z-20">
-        <img 
-          src="/lovable-uploads/78a5631c-42b4-4921-b626-cb018d8234db.png" 
-          alt="Viajes Camino de Santiago" 
-          className="h-16 w-auto"
+        <img
+          src="/lovable-uploads/18d74412-d0fc-488e-9553-24ba80c8e473.png"
+          alt="Viajes Camino de Santiago"
+          className="h-16 md:h-20 w-auto"
         />
       </div>
 
@@ -61,9 +61,9 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center animate-fade-in">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-            Vende el{' '}
-            <span className="gradient-text">Camino de Santiago</span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <span className="text-gray-900">Vende el </span>
+            <span className="text-camino-green">Camino de Santiago</span>
           </h1>
           <h2 className="text-2xl md:text-3xl font-light text-gray-700 mb-8">
             Nosotros nos encargamos del resto.
