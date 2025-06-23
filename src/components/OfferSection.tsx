@@ -1,29 +1,29 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Check, Download, Bed, Package, Phone, GraduationCap, TrendingUp } from 'lucide-react';
+import { Check, Download, Bed, Package, Phone, GraduationCap, TrendingUp, DollarSign } from 'lucide-react';
 
 const OfferSection = () => {
   const offerings = [
     {
-      icon: Package,
-      title: "Producto completo",
-      description: "Alojamiento, transporte de equipaje, asistencia 24/7, seguros y documentación."
+      icon: "✔️",
+      title: "Todo organizado",
+      description: "Alojamiento, transporte de equipaje, seguros, asistencia 24/7 y documentación completa."
     },
     {
-      icon: TrendingUp,
-      title: "Grandes comisiones por ventas",
-      description: "Comisiones atractivas por cliente + bonos por volumen de ventas."
+      icon: "💰",
+      title: "Comisiones competitivas y bonos por volumen",
+      description: "Gana por cada venta + bonificaciones especiales al alcanzar objetivos mensuales."
     },
     {
-      icon: GraduationCap,
-      title: "Formación personalizada",
-      description: "Te capacitamos 1:1 sobre el producto, técnicas de venta y manejo de objeciones."
+      icon: "🧠",
+      title: "Formación 1:1 sin coste",
+      description: "Te capacitamos personalmente sobre el producto, técnicas de venta y manejo de objeciones."
     },
     {
-      icon: Bed,
-      title: "Material de venta",
-      description: "Brochures personalizados, videos promocionales y kit de ventas con tu marca."
+      icon: "🧾",
+      title: "Material personalizado para vender mejor",
+      description: "Brochures con tu marca, videos promocionales y kit de ventas profesional."
     }
   ];
 
@@ -37,8 +37,8 @@ const OfferSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Qué ofrecemos a{' '}
-            <span className="gradient-text">tu agencia</span>
+            Qué incluye trabajar con{' '}
+            <span className="text-camino-green">nosotros</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Todo lo que necesitas para empezar a vender el Camino de Santiago 
@@ -50,11 +50,11 @@ const OfferSection = () => {
           {offerings.map((offering, index) => (
             <div 
               key={index}
-              className="flex items-start space-x-6 p-8 bg-gray-50 rounded-xl hover-lift animate-scale-in"
+              className="flex items-start space-x-6 p-8 bg-gray-50 rounded-xl hover-lift animate-scale-in border border-gray-100"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-12 h-12 bg-camino-green/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <offering.icon className="w-6 h-6 text-camino-green" />
+              <div className="text-4xl flex-shrink-0">
+                {offering.icon}
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{offering.title}</h3>
@@ -62,6 +62,22 @@ const OfferSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Urgency section */}
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-400 rounded-xl p-8 mb-12 animate-fade-in">
+          <div className="text-center">
+            <div className="text-4xl mb-4">🎯</div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Solo aceptamos 30 nuevas agencias cada trimestre
+            </h3>
+            <p className="text-lg text-gray-700 mb-6">
+              Para garantizar calidad y soporte personalizado a cada colaborador.
+            </p>
+            <p className="text-xl font-semibold text-amber-700">
+              ¿Quieres ser una de ellas?
+            </p>
+          </div>
         </div>
 
         {/* CTA Section */}
@@ -78,7 +94,7 @@ const OfferSection = () => {
             className="bg-white text-camino-green hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <Phone className="mr-3 h-6 w-6" />
-            Solicita una reunión con nosotros
+            📞 Solicita una reunión con nosotros
           </Button>
         </div>
       </div>

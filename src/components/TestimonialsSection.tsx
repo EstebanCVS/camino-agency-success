@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -8,25 +8,31 @@ const TestimonialsSection = () => {
       name: "María González",
       company: "Viajes Andalucía",
       location: "Sevilla, España",
-      text: "En 6 meses hemos vendido más de 50 Caminos. El producto se vende solo y el soporte es excepcional.",
+      country: "🇪🇸",
+      text: "En 6 meses vendimos más de 50 viajes. El producto se vende solo y el equipo nos acompaña en todo momento.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1494790108755-2616c88d1eb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
+      image: "https://images.unsplash.com/photo-1494790108755-2616c88d1eb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
+      logo: "VA"
     },
     {
       name: "Carlos Ramírez",
       company: "Turismo Azteca",
       location: "Ciudad de México, México",
-      text: "Nuestros clientes quedan fascinados. Ya tenemos lista de espera para los próximos grupos del Camino.",
+      country: "🇲🇽",
+      text: "Nuestros clientes quedan fascinados con la experiencia. Ya tenemos lista de espera para los próximos grupos del Camino.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
+      logo: "TA"
     },
     {
       name: "Ana Rodríguez",
-      company: "Viajes Spirituales",
+      company: "Viajes Espirituales",
       location: "Bogotá, Colombia",
-      text: "La comisión es excelente y la satisfacción de nuestros clientes es del 100%. Altamente recomendado.",
+      country: "🇨🇴",
+      text: "Las comisiones son excelentes y la satisfacción de nuestros clientes es del 100%. Altamente recomendado para cualquier agencia.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
+      logo: "VE"
     }
   ];
 
@@ -39,7 +45,7 @@ const TestimonialsSection = () => {
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Lo que dicen nuestras{' '}
-            <span className="gradient-text">agencias</span>
+            <span className="text-camino-green">agencias colaboradoras</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Testimonios reales de agencias que ya están vendiendo 
@@ -70,14 +76,21 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* Testimonials grid */}
+        {/* Testimonials carousel-style grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-white rounded-xl p-8 shadow-lg hover-lift border border-gray-100 animate-slide-in-left"
+              className="bg-white rounded-xl p-8 shadow-lg hover-lift border border-gray-100 animate-slide-in-left relative"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
+              {/* Company logo/initials */}
+              <div className="absolute -top-4 right-6">
+                <div className="w-12 h-12 bg-camino-green rounded-full flex items-center justify-center text-white font-bold text-sm">
+                  {testimonial.logo}
+                </div>
+              </div>
+              
               {/* Quote icon */}
               <div className="mb-6">
                 <Quote className="w-8 h-8 text-camino-green/30" />
@@ -91,7 +104,7 @@ const TestimonialsSection = () => {
               </div>
               
               {/* Testimonial text */}
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
+              <p className="text-gray-700 mb-6 leading-relaxed italic text-lg">
                 "{testimonial.text}"
               </p>
               
@@ -105,11 +118,28 @@ const TestimonialsSection = () => {
                 <div>
                   <div className="font-semibold text-gray-900">{testimonial.name}</div>
                   <div className="text-sm text-camino-green font-medium">{testimonial.company}</div>
-                  <div className="text-sm text-gray-500">{testimonial.location}</div>
+                  <div className="text-sm text-gray-500 flex items-center">
+                    {testimonial.country} {testimonial.location}
+                  </div>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Additional trust indicators */}
+        <div className="mt-16 text-center">
+          <p className="text-gray-600 mb-8 text-lg">
+            <span className="font-semibold text-camino-green">+120 agencias</span> en todo el mundo ya confían en nosotros
+          </p>
+          <div className="flex justify-center items-center gap-8 text-sm text-gray-500">
+            <span>🇪🇸 España</span>
+            <span>🇲🇽 México</span>
+            <span>🇨🇴 Colombia</span>
+            <span>🇦🇷 Argentina</span>
+            <span>🇨🇱 Chile</span>
+            <span>🇵🇪 Perú</span>
+          </div>
         </div>
       </div>
     </section>

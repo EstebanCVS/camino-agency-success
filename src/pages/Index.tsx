@@ -5,21 +5,23 @@ import WhySection from '../components/WhySection';
 import OfferSection from '../components/OfferSection';
 import HowItWorksSection from '../components/HowItWorksSection';
 import TestimonialsSection from '../components/TestimonialsSection';
-import LeadFormSection from '../components/LeadFormSection';
 import FAQSection from '../components/FAQSection';
+import DownloadFormSection from '../components/DownloadFormSection';
+import LeadFormSection from '../components/LeadFormSection';
 import SocialProofSection from '../components/SocialProofSection';
 import StickyElements from '../components/StickyElements';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white overflow-x-hidden font-montserrat">
       <HeroSection />
       <WhySection />
       <OfferSection />
       <HowItWorksSection />
       <TestimonialsSection />
-      <LeadFormSection />
       <FAQSection />
+      <DownloadFormSection />
+      <LeadFormSection />
       <SocialProofSection />
       <StickyElements />
     </div>

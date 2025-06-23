@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Download, Phone, Play } from 'lucide-react';
+import { Download, Phone, Play, Mail } from 'lucide-react';
 
 const HeroSection = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -11,15 +11,22 @@ const HeroSection = () => {
     setTimeout(() => setIsVideoPlaying(true), 1000);
   }, []);
 
-  const handleDownloadDossier = () => {
-    console.log('Downloading dossier...');
-    // Here you would implement the actual download logic
-  };
-
   const handleScheduleCall = () => {
     console.log('Scheduling call...');
-    // Here you would integrate with Calendly
+    // Ruta caliente - directa a Calendly
     window.open('https://calendly.com/your-calendly-link', '_blank');
+  };
+
+  const handleDownloadDossier = () => {
+    console.log('Download dossier...');
+    // Ruta curiosa - scroll al formulario de descarga
+    document.getElementById('download-form')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleMoreInfo = () => {
+    console.log('More info request...');
+    // Ruta templada - scroll al formulario de información
+    document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -60,34 +67,50 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center animate-fade-in">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            <span className="text-gray-900">Vende el </span>
-            <span className="text-camino-green">Camino de Santiago</span>
+        <div className="max-w-5xl mx-auto">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900">
+            Vende uno de los viajes{' '}
+            <span className="text-camino-green">más deseados del mundo</span>
           </h1>
           <h2 className="text-2xl md:text-3xl font-light text-gray-700 mb-8">
-            Nosotros nos encargamos del resto.
+            Tú te encargas de captar al cliente. Nosotros del resto.
           </h2>
-          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto font-light">
-            Un producto probado. Alta demanda. Y tú ganas comisiones.
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto font-light">
+            El Camino de Santiago recibe más de 500.000 peregrinos al año. 
+            Te ayudamos a convertir esa demanda en ventas para tu agencia.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Button
-              onClick={handleDownloadDossier}
-              className="camino-button text-lg px-8 py-6 w-full sm:w-auto animate-slide-in-left"
-            >
-              <Download className="mr-3 h-6 w-6" />
-              Quiero el dosier informativo
-            </Button>
+          {/* Three CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button
               onClick={handleScheduleCall}
-              className="camino-button-secondary text-lg px-8 py-6 w-full sm:w-auto animate-slide-in-right"
+              className="bg-camino-green hover:bg-camino-green-light text-white font-semibold text-lg px-8 py-6 w-full sm:w-auto rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <Phone className="mr-3 h-6 w-6" />
-              Solicita una reunión con nosotros
+              📞 Agendar una llamada
             </Button>
+            <Button
+              onClick={handleDownloadDossier}
+              className="bg-white border-2 border-camino-green text-camino-green hover:bg-camino-green hover:text-white font-semibold text-lg px-8 py-6 w-full sm:w-auto rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <Download className="mr-3 h-6 w-6" />
+              📥 Descargar dosier
+            </Button>
+            <Button
+              onClick={handleMoreInfo}
+              className="bg-camino-blue hover:bg-camino-blue-dark text-white font-semibold text-lg px-8 py-6 w-full sm:w-auto rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <Mail className="mr-3 h-6 w-6" />
+              📬 Quiero más información
+            </Button>
+          </div>
+
+          {/* New positioning text */}
+          <div className="mb-12">
+            <p className="text-xl text-gray-700 font-medium">
+              Conviértete en distribuidor de una experiencia que cambia vidas.{' '}
+              <span className="text-camino-green font-semibold">Nosotros organizamos todo, tú ganas comisiones por cada venta.</span>
+            </p>
           </div>
 
           {/* Video Play Button */}

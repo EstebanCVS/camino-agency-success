@@ -36,6 +36,13 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+    
+    /* Custom Camino colors */
+    --camino-green: 107, 59%, 34%;
+    --camino-green-light: 120, 45%, 45%;
+    --camino-blue: 215, 64%, 55%;
+    --camino-blue-dark: 215, 64%, 45%;
+    --camino-beige: 45, 30%, 95%;
   }
 
   .dark {
@@ -75,8 +82,51 @@
   }
 
   body {
-    @apply bg-background text-foreground font-montserrat;
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   }
+}
+
+/* Custom color classes */
+.text-camino-green {
+  color: hsl(var(--camino-green));
+}
+
+.bg-camino-green {
+  background-color: hsl(var(--camino-green));
+}
+
+.text-camino-green-light {
+  color: hsl(var(--camino-green-light));
+}
+
+.bg-camino-green-light {
+  background-color: hsl(var(--camino-green-light));
+}
+
+.text-camino-blue {
+  color: hsl(var(--camino-blue));
+}
+
+.bg-camino-blue {
+  background-color: hsl(var(--camino-blue));
+}
+
+.bg-camino-blue-dark {
+  background-color: hsl(var(--camino-blue-dark));
+}
+
+.bg-camino-beige {
+  background-color: hsl(var(--camino-beige));
+}
+
+/* Hover states */
+.hover\:bg-camino-green-light:hover {
+  background-color: hsl(var(--camino-green-light));
+}
+
+.hover\:bg-camino-blue-dark:hover {
+  background-color: hsl(var(--camino-blue-dark));
 }
 
 /* Custom animations and styles */
@@ -111,12 +161,9 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.camino-button {
-  @apply bg-camino-green hover:bg-camino-green-light text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
-}
-
-.camino-button-secondary {
-  @apply bg-white border-2 border-camino-green text-camino-green hover:bg-camino-green hover:text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+/* Font family */
+.font-montserrat {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 /* Sticky elements */
@@ -157,7 +204,16 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Loading animation */
+/* Animations */
+@keyframes pulse-gentle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
 @keyframes shimmer {
   0% {
     background-position: -1000px 0;
@@ -171,4 +227,8 @@ html {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 1000px 100%;
   animation: shimmer 2s infinite;
+}
+
+.animate-pulse-gentle {
+  animation: pulse-gentle 3s ease-in-out infinite;
 }
