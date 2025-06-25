@@ -34,38 +34,16 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* Background YouTube Video */}
+      {/* Background Image Only */}
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full">
-          {isVideoPlaying ? (
-            <iframe
-              src="https://www.youtube.com/embed/EhwVPVAZPZU?autoplay=1&mute=1&loop=1&playlist=EhwVPVAZPZU&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1"
+          <div className="w-full h-full bg-gradient-to-br from-camino-green/20 to-camino-blue/20 flex items-center justify-center">
+            <img
+              src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
+              alt="Camino de Santiago landscape"
               className="w-full h-full object-cover opacity-30"
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                width: '100vw',
-                height: '56.25vw', // 16:9 aspect ratio
-                minHeight: '100vh',
-                minWidth: '177.78vh', // 16:9 aspect ratio
-                transform: 'translate(-50%, -50%)',
-                pointerEvents: 'none'
-              }}
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              title="Camino de Santiago Video"
             />
-          ) : (
-            <div className="w-full h-full bg-gradient-to-br from-camino-green/20 to-camino-blue/20 flex items-center justify-center">
-              <img
-                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
-                alt="Camino de Santiago landscape"
-                className="w-full h-full object-cover opacity-30"
-              />
-            </div>
-          )}
+          </div>
         </div>
       </div>
 
@@ -127,16 +105,6 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-
-          {/* Video Play Button */}
-          {!isVideoPlaying && (
-            <button
-              onClick={() => setIsVideoPlaying(true)}
-              className="group mx-auto flex items-center justify-center w-20 h-20 bg-white/90 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 animate-pulse-gentle"
-            >
-              <Play className="h-8 w-8 text-camino-green ml-1 group-hover:text-camino-green-light transition-colors" fill="currentColor" />
-            </button>
-          )}
         </div>
       </div>
 
