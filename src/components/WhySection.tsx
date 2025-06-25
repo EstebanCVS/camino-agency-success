@@ -7,7 +7,7 @@ const WhySection = () => {
     {
       icon: TrendingUp,
       title: "Demanda en crecimiento",
-      description: "Más de 400,000 peregrinos anuales buscan experiencias auténticas del Camino de Santiago.",
+      description: "Más de 500,000 peregrinos anuales buscan experiencias auténticas del Camino de Santiago.",
       stat: "+15% anual"
     },
     {

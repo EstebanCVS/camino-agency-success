@@ -9,6 +9,7 @@ import LeadFormSection from '../components/LeadFormSection';
 import SocialProofSection from '../components/SocialProofSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import StickyElements from '../components/StickyElements';
+import Footer from '../components/Footer';
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       <SocialProofSection />
       <TestimonialsSection />
       <StickyElements />
+      <Footer />
     </div>
   );
 };

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, Phone, Play, Mail } from 'lucide-react';
+import ContactDialog from './ContactDialog';
 
 const HeroSection = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -17,14 +18,8 @@ const HeroSection = () => {
     window.open('https://links.viajescaminodesantiago.com/widget/bookings/video-inicial-bb02ffae-1815-4a7e-a223-b1dcd8a63df4-18637aa9-18fb-46a3-9d6b-949714beb185', '_blank');
   };
 
-  const handleMoreInfo = () => {
-    console.log('More info request...');
-    // Ruta templada - scroll al formulario de información
-    document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden pt-24">
+    <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden pt-24">
       {/* Logo */}
       <div className="absolute top-12 left-8 z-20">
         <img
@@ -71,13 +66,18 @@ const HeroSection = () => {
               <Phone className="mr-3 h-6 w-6" />
               📞 Agendar una llamada
             </Button>
-            <Button
-              onClick={handleMoreInfo}
-              className="bg-camino-blue hover:bg-camino-blue-dark text-white font-semibold text-lg px-8 py-6 w-full sm:w-auto rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            
+            <ContactDialog
+              title="📬 Quiero más información"
+              description="Déjanos tus datos y te enviaremos información detallada sobre nuestro programa para agencias."
             >
-              <Mail className="mr-3 h-6 w-6" />
-              📬 Quiero más información
-            </Button>
+              <Button
+                className="bg-camino-blue hover:bg-camino-blue-dark text-white font-semibold text-lg px-8 py-6 w-full sm:w-auto rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <Mail className="mr-3 h-6 w-6" />
+                📬 Quiero más información
+              </Button>
+            </ContactDialog>
           </div>
 
           {/* Positioning text */}

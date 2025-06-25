@@ -16,7 +16,7 @@ const FAQSection = () => {
     },
     {
       icon: "🎓",
-      question: "¿Necesito experiencia previa vendiendo turismo religioso?",
+      question: "¿Necesito experiencia previa vendiendo el Camino de Santiago?",
       answer: "No es necesario. Te proporcionamos formación completa sobre el Camino de Santiago, técnicas de venta específicas y material educativo. Nuestro equipo te acompaña durante todo el proceso."
     },
     {
@@ -32,12 +32,7 @@ const FAQSection = () => {
     {
       icon: "🛠️",
       question: "¿Qué soporte recibo después de empezar a vender?",
-      answer: "Soporte continuo vía WhatsApp, email y llamadas. Tenemos un gestor dedicado para resolver dudas, ayudar con reservas complejas y optimizar tus ventas."
-    },
-    {
-      icon: "📍",
-      question: "¿Hay exclusividad territorial?",
-      answer: "Trabajamos con múltiples agencias por ciudad/región, pero limitamos el número para asegurar que cada agencia tenga suficiente mercado. Consultamos caso por caso."
+      answer: "Soporte continuo por email y llamadas. Tenemos un gestor dedicado para resolver dudas, ayudar con reservas complejas y optimizar tus ventas."
     },
     {
       icon: "⏱️",
@@ -47,7 +42,7 @@ const FAQSection = () => {
     {
       icon: "🆘",
       question: "¿Qué pasa si un cliente tiene problemas durante el Camino?",
-      answer: "Tenemos asistencia 24/7 durante todo el Camino. Nosotros nos encargamos de resolver cualquier incidencia y mantenemos informada a la agencia. El cliente siempre está cubierto."
+      answer: "Tenemos asistencia en ruta durante todo el Camino. Nosotros nos encargamos de resolver cualquier incidencia y mantenemos informada a la agencia. El cliente siempre está cubierto."
     }
   ];
 
@@ -100,7 +95,7 @@ const FAQSection = () => {
               📞 Llamar ahora
             </button>
             <button className="bg-camino-green hover:bg-camino-green-light text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300">
-              💬 Chat por WhatsApp
+              💬 Contactar por email
             </button>
           </div>
         </div>

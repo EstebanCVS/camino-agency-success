@@ -2,13 +2,14 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Check, Download, Bed, Package, Phone, GraduationCap, TrendingUp, DollarSign } from 'lucide-react';
+import ContactDialog from './ContactDialog';
 
 const OfferSection = () => {
   const offerings = [
     {
       icon: "✔️",
       title: "Todo organizado",
-      description: "Alojamiento, transporte de equipaje, seguros, asistencia 24/7 y documentación completa."
+      description: "Alojamiento, transporte de equipaje, seguros, asistencia en ruta y documentación completa."
     },
     {
       icon: "💰",
@@ -62,6 +63,28 @@ const OfferSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Download Section */}
+        <div className="bg-gradient-to-r from-camino-blue to-camino-blue-dark rounded-2xl p-12 text-center text-white animate-fade-in mb-12">
+          <h3 className="text-3xl font-bold mb-6">
+            📄 Descarga nuestro dossier completo
+          </h3>
+          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            Obtén información detallada sobre comisiones, material de ventas, 
+            formación y todo lo que necesitas saber.
+          </p>
+          <ContactDialog
+            title="📄 Descargar dossier"
+            description="Déjanos tus datos y te enviaremos inmediatamente nuestro dossier completo para agencias."
+          >
+            <Button 
+              className="bg-white text-camino-blue hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <Download className="mr-3 h-6 w-6" />
+              📄 Descargar dossier
+            </Button>
+          </ContactDialog>
         </div>
 
         {/* CTA Section */}
