@@ -8,6 +8,7 @@ import DownloadFormSection from '../components/DownloadFormSection';
 import LeadFormSection from '../components/LeadFormSection';
 import SocialProofSection from '../components/SocialProofSection';
 import TestimonialsSection from '../components/TestimonialsSection';
+import PhotoGallerySection from '../components/PhotoGallerySection';
 import StickyElements from '../components/StickyElements';
 import Footer from '../components/Footer';
 
@@ -17,6 +18,7 @@ const Index = () => {
       <HeroSection />
       <WhySection />
       <OfferSection />
+      <PhotoGallerySection />
       <FAQSection />
       <DownloadFormSection />
       <LeadFormSection />

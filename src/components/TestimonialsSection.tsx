@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, Quote, ExternalLink } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -10,7 +11,7 @@ const TestimonialsSection = () => {
       country: "🇪🇸",
       text: "Una experiencia única e inolvidable. Todo perfectamente organizado, desde el alojamiento hasta el transporte del equipaje. Recomendable 100%.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1494790108755-2616c88d1eb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
     },
     {
       name: "Miguel González",
@@ -26,7 +27,22 @@ const TestimonialsSection = () => {
       country: "🇪🇸", 
       text: "Superó todas mis expectativas. Cada detalle cuidado al máximo. El equipo te acompaña en todo momento. Sin duda, lo recomiendo.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
+      image: "https://images.unsplash.com/photo-1438761681033-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
+    }
+  ];
+
+  const videoTestimonials = [
+    {
+      id: "Hzpzsob2p6k",
+      title: "Testimonio Camino de Santiago 1"
+    },
+    {
+      id: "NkjuSMTyHWM", 
+      title: "Testimonio Camino de Santiago 2"
+    },
+    {
+      id: "ihjQ-frZyj8",
+      title: "Testimonio Camino de Santiago 3"
     }
   ];
 
@@ -47,7 +63,7 @@ const TestimonialsSection = () => {
           </p>
           
           {/* Google Rating */}
-          <div className="flex justify-center items-center mb-12">
+          <div className="flex justify-center items-center mb-8">
             <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
               <div className="flex items-center justify-center mb-4">
                 <img 
@@ -68,28 +84,40 @@ const TestimonialsSection = () => {
               <p className="text-gray-600">Basado en <span className="font-semibold text-camino-green">casi 4.000 reseñas</span></p>
             </div>
           </div>
+
+          {/* Link to external testimonials */}
+          <div className="mb-12">
+            <a 
+              href="https://viajecaminodesantiago.com/que-cuentan-de-nosotros/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-camino-green hover:bg-camino-green-light text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+            >
+              <ExternalLink className="mr-2 h-5 w-5" />
+              Mira lo que dicen de nosotros nuestros clientes
+            </a>
+          </div>
         </div>
 
-        {/* Video placeholders section */}
+        {/* Real video testimonials */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
             Experiencias reales de nuestros peregrinos
           </h3>
           <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((index) => (
+            {videoTestimonials.map((video, index) => (
               <div key={index} className="relative">
                 <div className="aspect-video bg-gray-200 rounded-2xl overflow-hidden shadow-lg">
-                  <div className="w-full h-full bg-gradient-to-br from-camino-blue/20 to-camino-green/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg className="w-6 h-6 text-camino-green" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      </div>
-                      <p className="text-gray-600 font-medium">Video testimonio {index}</p>
-                      <p className="text-sm text-gray-500">(Enlace pendiente)</p>
-                    </div>
-                  </div>
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={`https://www.youtube.com/embed/${video.id}`}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  ></iframe>
                 </div>
               </div>
             ))}
