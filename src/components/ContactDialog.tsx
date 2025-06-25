@@ -8,40 +8,41 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogClose,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Mail } from 'lucide-react';
+import { useWebhook } from '@/hooks/useWebhook';
 
 interface ContactDialogProps {
   children: React.ReactNode;
   title: string;
   description: string;
+  source?: string;
 }
 
-const ContactDialog = ({ children, title, description }: ContactDialogProps) => {
+const ContactDialog = ({ children, title, description, source = 'contact_dialog' }: ContactDialogProps) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [open, setOpen] = useState(false);
+  const { sendToWebhook, isLoading } = useWebhook();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    console.log('Contact dialog form submitted:', { name, email, source });
     
-    // Aquí iría la lógica de envío del formulario
-    console.log('Form submitted:', { name, email });
+    const success = await sendToWebhook({ name, email }, source);
     
-    // Simular envío
-    setTimeout(() => {
-      setIsSubmitting(false);
+    if (success) {
       setName('');
       setEmail('');
-      // Cerrar el diálogo
-    }, 1000);
+      setOpen(false);
+    }
   };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
@@ -76,10 +77,10 @@ const ContactDialog = ({ children, title, description }: ContactDialogProps) => 
           <Button 
             type="submit" 
             className="w-full bg-camino-green hover:bg-camino-green-light text-white"
-            disabled={isSubmitting}
+            disabled={isLoading}
           >
             <Mail className="mr-2 h-4 w-4" />
-            {isSubmitting ? 'Enviando...' : 'Enviar'}
+            {isLoading ? 'Enviando...' : 'Enviar'}
           </Button>
         </form>
       </DialogContent>

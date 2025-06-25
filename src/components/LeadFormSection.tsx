@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -6,10 +5,10 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Download, Shield, Clock, Users } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { useWebhook } from '@/hooks/useWebhook';
 
 const LeadFormSection = () => {
-  const { toast } = useToast();
+  const { sendToWebhook, isLoading } = useWebhook();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,25 +19,24 @@ const LeadFormSection = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log('Lead form submitted:', formData);
     
-    toast({
-      title: "¡Formulario enviado!",
-      description: "Te enviaremos el dosier en las próximas horas. Revisa tu email.",
-    });
+    const success = await sendToWebhook(formData, 'landing_page_lead_form');
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      country: '',
-      experience: '',
-      message: ''
-    });
+    if (success) {
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        country: '',
+        experience: '',
+        message: ''
+      });
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -222,9 +220,13 @@ const LeadFormSection = () => {
                 />
               </div>
 
-              <Button type="submit" className="w-full camino-button text-lg py-6">
+              <Button 
+                type="submit" 
+                className="w-full camino-button text-lg py-6"
+                disabled={isLoading}
+              >
                 <Download className="mr-3 h-6 w-6" />
-                Quiero el dosier y más información
+                {isLoading ? 'Enviando...' : 'Quiero el dosier y más información'}
               </Button>
 
               <p className="text-sm text-gray-500 text-center mt-4">

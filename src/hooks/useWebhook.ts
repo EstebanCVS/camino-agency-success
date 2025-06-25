@@ -5,8 +5,11 @@ import { useToast } from '@/hooks/use-toast';
 interface WebhookData {
   name: string;
   email: string;
-  company: string;
-  country: string;
+  company?: string;
+  country?: string;
+  phone?: string;
+  experience?: string;
+  message?: string;
   timestamp?: string;
   source?: string;
 }
@@ -17,15 +20,15 @@ export const useWebhook = () => {
   
   const WEBHOOK_URL = 'https://hook.eu2.make.com/1kwykm1gzf9doutiea89tdtkeuahqimd';
 
-  const sendToWebhook = async (data: WebhookData) => {
+  const sendToWebhook = async (data: WebhookData, source: string = 'landing_page_form') => {
     setIsLoading(true);
-    console.log('Enviando datos al webhook:', data);
+    console.log('Enviando datos al webhook:', { ...data, source });
 
     try {
       const payload = {
         ...data,
         timestamp: new Date().toISOString(),
-        source: 'landing_page_download_form'
+        source
       };
 
       const response = await fetch(WEBHOOK_URL, {
@@ -40,8 +43,8 @@ export const useWebhook = () => {
       console.log('Datos enviados al webhook exitosamente');
       
       toast({
-        title: "¡Dosier enviado!",
-        description: "Revisa tu email. Te hemos enviado el dosier completo con toda la información.",
+        title: "¡Datos enviados!",
+        description: "Hemos recibido tu información. Te contactaremos pronto.",
       });
 
       return true;
@@ -49,8 +52,8 @@ export const useWebhook = () => {
       console.error('Error enviando al webhook:', error);
       
       toast({
-        title: "¡Dosier enviado!",
-        description: "Revisa tu email. Te hemos enviado el dosier completo con toda la información.",
+        title: "¡Datos enviados!",
+        description: "Hemos recibido tu información. Te contactaremos pronto.",
       });
 
       return true; // Devolvemos true para no bloquear la experiencia del usuario

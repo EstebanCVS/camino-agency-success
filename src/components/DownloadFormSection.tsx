@@ -19,8 +19,8 @@ const DownloadFormSection = () => {
     e.preventDefault();
     console.log('Download form submitted:', formData);
     
-    // Enviar datos al webhook
-    const success = await sendToWebhook(formData);
+    // Enviar datos al webhook con source específico
+    const success = await sendToWebhook(formData, 'landing_page_download_form');
     
     if (success) {
       // Reset form

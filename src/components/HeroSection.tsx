@@ -70,6 +70,7 @@ const HeroSection = () => {
             <ContactDialog
               title="📬 Quiero más información"
               description="Déjanos tus datos y te enviaremos información detallada sobre nuestro programa para agencias."
+              source="hero_section_info_request"
             >
               <Button
                 className="bg-camino-blue hover:bg-camino-blue-dark text-white font-semibold text-lg px-8 py-6 w-full sm:w-auto rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"

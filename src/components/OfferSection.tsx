@@ -77,6 +77,7 @@ const OfferSection = () => {
           <ContactDialog
             title="📄 Descargar dossier"
             description="Déjanos tus datos y te enviaremos inmediatamente nuestro dossier completo para agencias."
+            source="offer_section_dossier_download"
           >
             <Button 
               className="bg-white text-camino-blue hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all duration-300"
