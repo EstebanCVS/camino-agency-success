@@ -102,19 +102,19 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          {/* New positioning text */}
-          <div className="mb-12">
+          {/* Positioning text */}
+          <div className="mb-8">
             <p className="text-xl text-gray-700 font-medium">
               Conviértete en distribuidor de una experiencia que cambia vidas.{' '}
               <span className="text-camino-green font-semibold">Nosotros organizamos todo, tú ganas comisiones por cada venta.</span>
             </p>
           </div>
 
-          {/* Featured Video Section */}
+          {/* Featured YouTube Video Section - Positioned right after the text */}
           <div className="mb-12">
             <div className="max-w-4xl mx-auto">
-              <div className="relative rounded-lg overflow-hidden shadow-2xl bg-white/10 backdrop-blur-sm border border-white/20">
-                <div className="aspect-video">
+              <div className="relative rounded-lg overflow-hidden shadow-2xl bg-white/20 backdrop-blur-sm border border-white/30 p-1">
+                <div className="aspect-video bg-black rounded-md overflow-hidden">
                   <iframe
                     src="https://www.youtube.com/embed/EhwVPVAZPZU"
                     className="w-full h-full"
