@@ -1,14 +1,13 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Download, Shield, FileText, Zap } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { useWebhook } from '@/hooks/useWebhook';
 
 const DownloadFormSection = () => {
-  const { toast } = useToast();
+  const { sendToWebhook, isLoading } = useWebhook();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,22 +15,22 @@ const DownloadFormSection = () => {
     country: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Download form submitted:', formData);
     
-    toast({
-      title: "¡Dosier enviado!",
-      description: "Revisa tu email. Te hemos enviado el dosier completo con toda la información.",
-    });
-
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      country: ''
-    });
+    // Enviar datos al webhook
+    const success = await sendToWebhook(formData);
+    
+    if (success) {
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        country: ''
+      });
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -167,9 +166,13 @@ const DownloadFormSection = () => {
                 </Select>
               </div>
 
-              <Button type="submit" className="w-full bg-camino-green hover:bg-camino-green-light text-white font-semibold text-lg py-4 mt-6">
+              <Button 
+                type="submit" 
+                className="w-full bg-camino-green hover:bg-camino-green-light text-white font-semibold text-lg py-4 mt-6"
+                disabled={isLoading}
+              >
                 <Download className="mr-3 h-6 w-6" />
-                📥 Descargar dosier ahora
+                {isLoading ? 'Enviando...' : '📥 Descargar dosier ahora'}
               </Button>
 
               <p className="text-sm text-gray-500 text-center mt-4">
