@@ -34,7 +34,7 @@ const HeroSection = () => {
       {/* Logo */}
       <div className="absolute top-8 left-8 z-20">
         <img
-          src="/lovable-uploads/18d74412-d0fc-488e-9553-24ba80c8e473.png"
+          src="/lovable-uploads/333ee870-ba17-430c-a2a0-23f73a548de0.png"
           alt="Viajes Camino de Santiago"
           className="h-16 md:h-20 w-auto"
         />
@@ -68,9 +68,9 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center animate-fade-in">
         <div className="max-w-5xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900">
-            Vende uno de los viajes{' '}
-            <span className="text-camino-green">más deseados del mundo</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <span className="text-gray-900">Vende el </span>
+            <span className="text-camino-green">Camino de Santiago</span>
           </h1>
           <h2 className="text-2xl md:text-3xl font-light text-gray-700 mb-8">
             Tú te encargas de captar al cliente. Nosotros del resto.
