@@ -16,12 +16,6 @@ const HeroSection = () => {
     window.open('https://links.viajescaminodesantiago.com/widget/bookings/video-inicial-bb02ffae-1815-4a7e-a223-b1dcd8a63df4-18637aa9-18fb-46a3-9d6b-949714beb185', '_blank');
   };
 
-  const handleDownloadDossier = () => {
-    console.log('Download dossier...');
-    // Ruta curiosa - scroll al formulario de descarga
-    document.getElementById('download-form')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   const handleMoreInfo = () => {
     console.log('More info request...');
     // Ruta templada - scroll al formulario de información
@@ -79,7 +73,7 @@ const HeroSection = () => {
             Te ayudamos a convertir esa demanda en ventas para tu agencia.
           </p>
 
-          {/* Three CTA Buttons */}
+          {/* Two CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button
               onClick={handleScheduleCall}
@@ -87,13 +81,6 @@ const HeroSection = () => {
             >
               <Phone className="mr-3 h-6 w-6" />
               📞 Agendar una llamada
-            </Button>
-            <Button
-              onClick={handleDownloadDossier}
-              className="bg-white border-2 border-camino-green text-camino-green hover:bg-camino-green hover:text-white font-semibold text-lg px-8 py-6 w-full sm:w-auto rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-            >
-              <Download className="mr-3 h-6 w-6" />
-              📥 Descargar dosier
             </Button>
             <Button
               onClick={handleMoreInfo}
