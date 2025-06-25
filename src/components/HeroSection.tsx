@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, Phone, Play, Mail } from 'lucide-react';
@@ -108,22 +109,6 @@ const HeroSection = () => {
               <Play className="h-8 w-8 text-camino-green ml-1 group-hover:text-camino-green-light transition-colors" fill="currentColor" />
             </button>
           )}
-
-          {/* Trust indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-8 mt-16 text-gray-500 text-sm animate-fade-in">
-            <div className="flex items-center">
-              <span className="font-semibold text-camino-green text-lg mr-2">+500,000</span>
-              peregrinos anuales
-            </div>
-            <div className="flex items-center">
-              <span className="font-semibold text-camino-green text-lg mr-2">+120</span>
-              agencias colaboradoras
-            </div>
-            <div className="flex items-center">
-              <span className="font-semibold text-camino-green text-lg mr-2">15</span>
-              años de experiencia
-            </div>
-          </div>
         </div>
       </div>
 
