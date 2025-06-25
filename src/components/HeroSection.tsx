@@ -34,19 +34,29 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* Background Video */}
+      {/* Background YouTube Video */}
       <div className="absolute inset-0 z-0">
-        <div className="video-container">
+        <div className="w-full h-full">
           {isVideoPlaying ? (
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover opacity-20"
-            >
-              <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69c9a83d5a8b5f4b2b5f9b5f5&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
-            </video>
+            <iframe
+              src="https://www.youtube.com/embed/EhwVPVAZPZU?autoplay=1&mute=1&loop=1&playlist=EhwVPVAZPZU&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1"
+              className="w-full h-full object-cover opacity-30"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                width: '100vw',
+                height: '56.25vw', // 16:9 aspect ratio
+                minHeight: '100vh',
+                minWidth: '177.78vh', // 16:9 aspect ratio
+                transform: 'translate(-50%, -50%)',
+                pointerEvents: 'none'
+              }}
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              title="Camino de Santiago Video"
+            />
           ) : (
             <div className="w-full h-full bg-gradient-to-br from-camino-green/20 to-camino-blue/20 flex items-center justify-center">
               <img
