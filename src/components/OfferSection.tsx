@@ -64,22 +64,6 @@ const OfferSection = () => {
           ))}
         </div>
 
-        {/* Urgency section */}
-        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-400 rounded-xl p-8 mb-12 animate-fade-in">
-          <div className="text-center">
-            <div className="text-4xl mb-4">🎯</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Solo aceptamos 30 nuevas agencias cada trimestre
-            </h3>
-            <p className="text-lg text-gray-700 mb-6">
-              Para garantizar calidad y soporte personalizado a cada colaborador.
-            </p>
-            <p className="text-xl font-semibold text-amber-700">
-              ¿Quieres ser una de ellas?
-            </p>
-          </div>
-        </div>
-
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-camino-green to-camino-green-light rounded-2xl p-12 text-center text-white animate-fade-in">
           <h3 className="text-3xl font-bold mb-6">
