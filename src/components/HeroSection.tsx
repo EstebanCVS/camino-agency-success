@@ -110,6 +110,24 @@ const HeroSection = () => {
             </p>
           </div>
 
+          {/* Featured Video Section */}
+          <div className="mb-12">
+            <div className="max-w-4xl mx-auto">
+              <div className="relative rounded-lg overflow-hidden shadow-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+                <div className="aspect-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/EhwVPVAZPZU"
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="Camino de Santiago - Video Promocional"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Video Play Button */}
           {!isVideoPlaying && (
             <button
