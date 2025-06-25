@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, Phone, Play, Mail } from 'lucide-react';
@@ -14,7 +13,7 @@ const HeroSection = () => {
   const handleScheduleCall = () => {
     console.log('Scheduling call...');
     // Ruta caliente - directa a Calendly
-    window.open('https://calendly.com/your-calendly-link', '_blank');
+    window.open('https://links.viajescaminodesantiago.com/widget/bookings/video-inicial-bb02ffae-1815-4a7e-a223-b1dcd8a63df4-18637aa9-18fb-46a3-9d6b-949714beb185', '_blank');
   };
 
   const handleDownloadDossier = () => {

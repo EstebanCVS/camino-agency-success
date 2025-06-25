@@ -62,7 +62,7 @@ const StickyElements = () => {
       {/* Optional: Calendly sticky button for larger screens */}
       <div className="hidden lg:block fixed bottom-20 left-6 z-50">
         <button
-          onClick={() => window.open('https://calendly.com/your-calendly-link', '_blank')}
+          onClick={() => window.open('https://links.viajescaminodesantiago.com/widget/bookings/video-inicial-bb02ffae-1815-4a7e-a223-b1dcd8a63df4-18637aa9-18fb-46a3-9d6b-949714beb185', '_blank')}
           className="bg-camino-blue hover:bg-camino-blue-dark text-white font-semibold py-3 px-6 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105"
         >
           📞 Agendar llamada
