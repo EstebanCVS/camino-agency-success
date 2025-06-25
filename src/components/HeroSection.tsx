@@ -36,7 +36,7 @@ const HeroSection = () => {
         <img
           src="/lovable-uploads/333ee870-ba17-430c-a2a0-23f73a548de0.png"
           alt="Viajes Camino de Santiago"
-          className="h-16 md:h-20 w-auto"
+          className="h-6 md:h-7 w-auto"
         />
       </div>
 
