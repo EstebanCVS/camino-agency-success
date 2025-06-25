@@ -20,7 +20,7 @@ const DownloadFormSection = () => {
     console.log('Download form submitted:', formData);
     
     // Enviar datos al webhook con source específico
-    const success = await sendToWebhook(formData, 'landing_page_download_form');
+    const success = await sendToWebhook(formData, 'formulario_dosier');
     
     if (success) {
       // Reset form

@@ -23,7 +23,7 @@ const LeadFormSection = () => {
     e.preventDefault();
     console.log('Lead form submitted:', formData);
     
-    const success = await sendToWebhook(formData, 'landing_page_lead_form');
+    const success = await sendToWebhook(formData, 'formulario_completo');
 
     if (success) {
       // Reset form

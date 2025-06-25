@@ -22,7 +22,7 @@ interface ContactDialogProps {
   source?: string;
 }
 
-const ContactDialog = ({ children, title, description, source = 'contact_dialog' }: ContactDialogProps) => {
+const ContactDialog = ({ children, title, description, source = 'popup_quiero_info' }: ContactDialogProps) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [open, setOpen] = useState(false);
