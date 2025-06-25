@@ -24,9 +24,9 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden pt-24">
       {/* Logo */}
-      <div className="absolute top-8 left-8 z-20">
+      <div className="absolute top-12 left-8 z-20">
         <img
           src="/lovable-uploads/333ee870-ba17-430c-a2a0-23f73a548de0.png"
           alt="Viajes Camino de Santiago"
