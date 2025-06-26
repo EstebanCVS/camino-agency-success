@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const PhotoGallerySection = () => {
@@ -11,7 +10,7 @@ const PhotoGallerySection = () => {
     {
       src: "/lovable-uploads/99c7f03f-73fc-4629-b741-6926010c5655.png", 
       alt: "Peregrinos abrazándose al finalizar el Camino",
-      caption: "El abrazo del peregrino"
+      caption: "a veces sobran las palabras"
     }
   ];
 
