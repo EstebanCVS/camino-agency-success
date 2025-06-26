@@ -1,11 +1,12 @@
+
 import React from 'react';
 
 const PhotoGallerySection = () => {
   const galleryImages = [
     {
-      src: "/lovable-uploads/428e58c0-0d9d-44dd-bdd2-95a3946cdfd7.png",
-      alt: "Peregrinos en la Catedral de Santiago de Compostela",
-      caption: "Llegada a Santiago de Compostela"
+      src: "/lovable-uploads/17134373-0eae-4c6a-b701-9783068de7a3.png",
+      alt: "Peregrinas felices durante el Camino de Santiago",
+      caption: "Nuevas amistades, desconexión..."
     },
     {
       src: "/lovable-uploads/99c7f03f-73fc-4629-b741-6926010c5655.png", 
