@@ -4,14 +4,14 @@ import React from 'react';
 const PhotoGallerySection = () => {
   const galleryImages = [
     {
-      src: "/lovable-uploads/333ee870-ba17-430c-a2a0-23f73a548de0.png",
-      alt: "Peregrinos en el Camino de Santiago",
-      caption: "Momentos únicos en el Camino"
+      src: "/lovable-uploads/428e58c0-0d9d-44dd-bdd2-95a3946cdfd7.png",
+      alt: "Peregrinos en la Catedral de Santiago de Compostela",
+      caption: "Llegada a Santiago de Compostela"
     },
     {
-      src: "/lovable-uploads/78a5631c-42b4-4921-b626-cb018d8234db.png", 
-      alt: "Experiencia del Camino de Santiago",
-      caption: "Viviendo la experiencia"
+      src: "/lovable-uploads/99c7f03f-73fc-4629-b741-6926010c5655.png", 
+      alt: "Peregrinos abrazándose al finalizar el Camino",
+      caption: "El abrazo del peregrino"
     }
   ];
 
