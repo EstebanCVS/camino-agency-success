@@ -68,7 +68,7 @@ const LeadFormUnified = ({
 
       console.log('Enviando datos del formulario:', Object.fromEntries(formDataToSend));
 
-      const response = await fetch('https://hook.eu2.make.com/niqhspus61m7q2ixmdt1vox600emx9hv', {
+      const response = await fetch('https://hook.eu2.make.com/6e92tfixe3jb8gidk658qxf9ykfmn98i', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
