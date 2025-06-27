@@ -21,13 +21,18 @@ const StickyElements = () => {
 
   const handleDownloadDossier = () => {
     console.log('Download dossier from sticky button');
-    // Scroll to form or trigger download
-    document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' });
+    // Scroll to form with anchor
+    document.getElementById('dossier-form')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleWhatsApp = () => {
     console.log('Opening WhatsApp');
     window.open('https://wa.me/34600000000?text=Hola, estoy interesado en vender el Camino de Santiago en mi agencia', '_blank');
+  };
+
+  const handleScheduleCall = () => {
+    console.log('Opening Calendly');
+    window.open('https://links.viajescaminodesantiago.com/widget/booking/5Z4Vi8V4sYIrZcrA6T9E', '_blank', 'noopener');
   };
 
   if (!showSticky) return null;
@@ -59,10 +64,10 @@ const StickyElements = () => {
         </button>
       </div>
 
-      {/* Optional: Calendly sticky button for larger screens */}
+      {/* Calendly sticky button for larger screens */}
       <div className="hidden lg:block fixed bottom-20 left-6 z-50">
         <button
-          onClick={() => window.open('https://links.viajescaminodesantiago.com/widget/bookings/video-inicial-bb02ffae-1815-4a7e-a223-b1dcd8a63df4-18637aa9-18fb-46a3-9d6b-949714beb185', '_blank')}
+          onClick={handleScheduleCall}
           className="bg-camino-blue hover:bg-camino-blue-dark text-white font-semibold py-3 px-6 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105"
         >
           📞 Agendar llamada

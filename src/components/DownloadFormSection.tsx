@@ -1,42 +1,9 @@
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
+import React from 'react';
 import { Download, Shield, FileText, Zap } from 'lucide-react';
-import { useWebhook } from '@/hooks/useWebhook';
+import LeadFormUnified from './LeadFormUnified';
 
 const DownloadFormSection = () => {
-  const { sendToWebhook, isLoading } = useWebhook();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    country: ''
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Download form submitted:', formData);
-    
-    // Enviar datos al webhook con source específico
-    const success = await sendToWebhook(formData, 'formulario_dosier');
-    
-    if (success) {
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        country: ''
-      });
-    }
-  };
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
   const benefits = [
     {
       icon: FileText,
@@ -56,7 +23,7 @@ const DownloadFormSection = () => {
   ];
 
   return (
-    <section id="download-form" className="py-20 bg-gradient-to-br from-camino-green/5 to-camino-blue/5">
+    <section id="dossier-form" className="py-20 bg-gradient-to-br from-camino-green/5 to-camino-blue/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -108,77 +75,15 @@ const DownloadFormSection = () => {
               <p className="text-gray-600">Solo necesitamos estos datos para enviártelo</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <Label htmlFor="name">Nombre completo *</Label>
-                <Input
-                  id="name"
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => handleInputChange('name', e.target.value)}
-                  className="mt-1"
-                  placeholder="Tu nombre"
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="email">Email profesional *</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => handleInputChange('email', e.target.value)}
-                  className="mt-1"
-                  placeholder="tu@agencia.com"
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="company">Nombre de la agencia *</Label>
-                <Input
-                  id="company"
-                  type="text"
-                  required
-                  value={formData.company}
-                  onChange={(e) => handleInputChange('company', e.target.value)}
-                  className="mt-1"
-                  placeholder="Nombre de tu agencia"
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="country">País *</Label>
-                <Select value={formData.country} onValueChange={(value) => handleInputChange('country', value)}>
-                  <SelectTrigger className="mt-1">
-                    <SelectValue placeholder="Selecciona tu país" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-white border border-gray-200 shadow-lg">
-                    <SelectItem value="spain">🇪🇸 España</SelectItem>
-                    <SelectItem value="mexico">🇲🇽 México</SelectItem>
-                    <SelectItem value="colombia">🇨🇴 Colombia</SelectItem>
-                    <SelectItem value="argentina">🇦🇷 Argentina</SelectItem>
-                    <SelectItem value="chile">🇨🇱 Chile</SelectItem>
-                    <SelectItem value="peru">🇵🇪 Perú</SelectItem>
-                    <SelectItem value="other">🌍 Otro país</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <Button 
-                type="submit" 
-                className="w-full bg-camino-green hover:bg-camino-green-light text-white font-semibold text-lg py-4 mt-6"
-                disabled={isLoading}
-              >
-                <Download className="mr-3 h-6 w-6" />
-                {isLoading ? 'Enviando...' : '📥 Descargar dosier ahora'}
-              </Button>
-
+            <LeadFormUnified
+              buttonText="📥 Descargar dosier ahora"
+              buttonIcon={<Download className="mr-3 h-6 w-6" />}
+              buttonClassName="bg-camino-green hover:bg-camino-green-light text-white font-semibold text-lg py-4 mt-6"
+            >
               <p className="text-sm text-gray-500 text-center mt-4">
                 * Campos obligatorios. No compartimos tu información con terceros.
               </p>
-            </form>
+            </LeadFormUnified>
           </div>
         </div>
       </div>

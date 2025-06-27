@@ -1,48 +1,9 @@
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Textarea } from '@/components/ui/textarea';
+
+import React from 'react';
 import { Download, Shield, Clock, Users } from 'lucide-react';
-import { useWebhook } from '@/hooks/useWebhook';
+import LeadFormUnified from './LeadFormUnified';
 
 const LeadFormSection = () => {
-  const { sendToWebhook, isLoading } = useWebhook();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    country: '',
-    experience: '',
-    message: ''
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Lead form submitted:', formData);
-    
-    const success = await sendToWebhook(formData, 'formulario_completo');
-
-    if (success) {
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        country: '',
-        experience: '',
-        message: ''
-      });
-    }
-  };
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
   const benefits = [
     {
       icon: Download,
@@ -120,119 +81,15 @@ const LeadFormSection = () => {
 
           {/* Form */}
           <div className="bg-white rounded-2xl shadow-2xl p-8 animate-slide-in-right">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="name">Nombre completo *</Label>
-                  <Input
-                    id="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => handleInputChange('name', e.target.value)}
-                    className="mt-1"
-                    placeholder="Tu nombre"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="company">Nombre de la agencia *</Label>
-                  <Input
-                    id="company"
-                    type="text"
-                    required
-                    value={formData.company}
-                    onChange={(e) => handleInputChange('company', e.target.value)}
-                    className="mt-1"
-                    placeholder="Nombre de tu agencia"
-                  />
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="email">Email profesional *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => handleInputChange('email', e.target.value)}
-                    className="mt-1"
-                    placeholder="tu@agencia.com"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="phone">Teléfono *</Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => handleInputChange('phone', e.target.value)}
-                    className="mt-1"
-                    placeholder="+34 600 000 000"
-                  />
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="country">País *</Label>
-                  <Select value={formData.country} onValueChange={(value) => handleInputChange('country', value)}>
-                    <SelectTrigger className="mt-1">
-                      <SelectValue placeholder="Selecciona tu país" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-white border border-gray-200 shadow-lg">
-                      <SelectItem value="spain">España</SelectItem>
-                      <SelectItem value="mexico">México</SelectItem>
-                      <SelectItem value="colombia">Colombia</SelectItem>
-                      <SelectItem value="argentina">Argentina</SelectItem>
-                      <SelectItem value="chile">Chile</SelectItem>
-                      <SelectItem value="peru">Perú</SelectItem>
-                      <SelectItem value="other">Otro</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <Label htmlFor="experience">Experiencia con turismo religioso</Label>
-                  <Select value={formData.experience} onValueChange={(value) => handleInputChange('experience', value)}>
-                    <SelectTrigger className="mt-1">
-                      <SelectValue placeholder="Selecciona tu experiencia" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-white border border-gray-200 shadow-lg">
-                      <SelectItem value="none">Sin experiencia</SelectItem>
-                      <SelectItem value="some">Algo de experiencia</SelectItem>
-                      <SelectItem value="experienced">Muy experimentado</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-
-              <div>
-                <Label htmlFor="message">Cuéntanos sobre tu agencia (opcional)</Label>
-                <Textarea
-                  id="message"
-                  value={formData.message}
-                  onChange={(e) => handleInputChange('message', e.target.value)}
-                  className="mt-1"
-                  placeholder="Tipo de clientes, servicios que ofreces, etc."
-                  rows={3}
-                />
-              </div>
-
-              <Button 
-                type="submit" 
-                className="w-full camino-button text-lg py-6"
-                disabled={isLoading}
-              >
-                <Download className="mr-3 h-6 w-6" />
-                {isLoading ? 'Enviando...' : 'Quiero el dosier y más información'}
-              </Button>
-
+            <LeadFormUnified
+              buttonText="Quiero el dosier y más información"
+              buttonIcon={<Download className="mr-3 h-6 w-6" />}
+              buttonClassName="camino-button text-lg py-6"
+            >
               <p className="text-sm text-gray-500 text-center mt-4">
                 * Campos obligatorios. Respetamos tu privacidad y no compartimos tu información.
               </p>
-            </form>
+            </LeadFormUnified>
           </div>
         </div>
       </div>

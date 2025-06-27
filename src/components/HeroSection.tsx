@@ -14,8 +14,8 @@ const HeroSection = () => {
 
   const handleScheduleCall = () => {
     console.log('Scheduling call...');
-    // Ruta caliente - directa a Calendly
-    window.open('https://links.viajescaminodesantiago.com/widget/bookings/video-inicial-bb02ffae-1815-4a7e-a223-b1dcd8a63df4-18637aa9-18fb-46a3-9d6b-949714beb185', '_blank');
+    // Enlace actualizado
+    window.open('https://links.viajescaminodesantiago.com/widget/booking/5Z4Vi8V4sYIrZcrA6T9E', '_blank', 'noopener');
   };
 
   return (
