@@ -71,7 +71,7 @@ const DownloadFormSection = () => {
               <div className="w-16 h-16 bg-camino-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Download className="w-8 h-8 text-camino-green" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Descarga gratuita</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2" data-testid="download-form">Descarga gratuita</h3>
               <p className="text-gray-600">Solo necesitamos estos datos para enviártelo</p>
             </div>
 

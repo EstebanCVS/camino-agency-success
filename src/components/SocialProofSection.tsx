@@ -80,7 +80,27 @@ const SocialProofSection = () => {
           <p className="text-xl mb-8 opacity-90">
             ¿Quieres ser la próxima agencia en nuestra red de éxito?
           </p>
-          <button className="bg-white text-camino-green hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <button 
+            onClick={() => {
+              const form = document.querySelector('h3:has-text("Descarga gratuita")') || 
+                          document.querySelector('[data-testid="download-form"]') ||
+                          document.querySelector('h3')?.closest('div')?.querySelector('h3[class*="text-2xl"]');
+              
+              if (!form) {
+                // Fallback: buscar el formulario por el texto
+                const headings = document.querySelectorAll('h3');
+                for (let heading of headings) {
+                  if (heading.textContent?.includes('Descarga gratuita')) {
+                    heading.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                  }
+                }
+              } else {
+                form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }
+            }}
+            className="bg-white text-camino-green hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          >
             Sí, quiero unirme ahora
           </button>
         </div>
