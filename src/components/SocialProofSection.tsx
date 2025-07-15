@@ -82,20 +82,8 @@ const SocialProofSection = () => {
           </p>
           <button 
             onClick={() => {
-              const form = document.querySelector('h3:has-text("Descarga gratuita")') || 
-                          document.querySelector('[data-testid="download-form"]') ||
-                          document.querySelector('h3')?.closest('div')?.querySelector('h3[class*="text-2xl"]');
-              
-              if (!form) {
-                // Fallback: buscar el formulario por el texto
-                const headings = document.querySelectorAll('h3');
-                for (let heading of headings) {
-                  if (heading.textContent?.includes('Descarga gratuita')) {
-                    heading.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    return;
-                  }
-                }
-              } else {
+              const form = document.getElementById('dossier-form');
+              if (form) {
                 form.scrollIntoView({ behavior: 'smooth', block: 'center' });
               }
             }}
