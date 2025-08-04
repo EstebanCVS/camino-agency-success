@@ -68,7 +68,7 @@ const LeadFormUnified = ({
 
       console.log('Enviando datos del formulario:', Object.fromEntries(formDataToSend));
 
-      const response = await fetch('https://hook.eu2.make.com/6e92tfixe3jb8gidk658qxf9ykfmn98i', {
+      const response = await fetch('https://n8n.viajecaminodesantiago.com/webhook-test/3db20910-473d-4b65-9412-b731358d28ef', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
