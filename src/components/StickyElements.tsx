@@ -27,7 +27,7 @@ const StickyElements = () => {
 
   const handleWhatsApp = () => {
     console.log('Opening WhatsApp');
-    window.open('https://wa.me/34600000000?text=Hola, estoy interesado en vender el Camino de Santiago en mi agencia', '_blank');
+    window.open('https://wa.me/34694408178?text=Hola, estoy interesado en vender el Camino de Santiago en mi agencia', '_blank');
   };
 
   const handleScheduleCall = () => {
